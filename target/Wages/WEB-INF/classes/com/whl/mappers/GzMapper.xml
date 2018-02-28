@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.whl.mappers.GzMapper" >
+	  <select id="OYearOfNYear" statementType="CALLABLE" parameterType="Map" resultType="com.whl.model.Gz">
+	  	<![CDATA[
+			  {
+			   call OYearOfNYear(
+			      #{NYear,mode=IN,jdbcType=INTEGER},
+			      #{NYue,mode=IN,jdbcType=INTEGER}   
+			   )	  
+			  }		
+			]]>	
+	  </select>
+	  <select id="OfYear" parameterType="com.whl.model.Gz" resultType="com.whl.model.Gz">
+	  select * from gz where qnian=#{qnian}
+	  </select>
+	  
+	  <select id="AllGz"  resultType="com.whl.model.Gz">
+	  select * from gz
+	  </select>
+	  
+	  <select id="AddGz" statementType="CALLABLE" parameterType="Map">
+	  	<![CDATA[
+			  {
+			   call AddGz(
+			      #{qnian,mode=IN,jdbcType=INTEGER},
+			      #{qyue,mode=IN,jdbcType=INTEGER},
+			      #{znian,mode=IN,jdbcType=INTEGER},
+			      #{flg,mode=OUT,jdbcType=INTEGER}   
+			   )	  
+			  }		
+			]]>	
+	  </select>
+	  
+	  <select id="UpGz" statementType="CALLABLE" parameterType="Map">
+	  	<![CDATA[
+			  {
+			   call UpGz(
+			      #{qnian,mode=IN,jdbcType=INTEGER},
+			      #{qyue,mode=IN,jdbcType=INTEGER},
+			      #{znian,mode=IN,jdbcType=INTEGER},
+			      #{flg,mode=OUT,jdbcType=INTEGER},
+			      #{yue,mode=OUT,jdbcType=INTEGER}
+			   )	  
+			  }		
+			]]>	
+	  </select>
+</mapper>

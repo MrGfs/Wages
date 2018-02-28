@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.whl.mappers.RiMapper" >
+		<!-- 按条件查询生活费支取记录 -->
+  	  <select id="selectRi" resultMap="RiWages" parameterType="com.whl.model.Ri">
+ 	 	select * from ri where 0=0
+ 	 	
+ 	 		<if test="ny!=null">
+ 	 			<if test="ny.nian!=0">
+ 	 			and ny in (select id FROM wages where  nian = #{ny.nian}) 	
+ 	 			</if>
+ 	 			<if test="ny.yue!=0">
+ 	 			and ny in (select id FROM wages where  yue = #{ny.yue}) 	
+ 	 			</if>	
+ 	 				 
+ 	 		</if>
+ 	 		<if test="ri!=0">
+ 	 			and ri =#{ri}	
+ 	 		</if>
+ 	 	 LIMIT #{page},#{rows}	 	
+  	  </select>
+  	  <select id="RiZnum" resultType="int" parameterType="com.whl.model.Ri">
+ 	 	select count(*) from ri	where 0=0
+ 	 	
+ 	 		<if test="ny!=null">
+ 	 			<if test="ny.nian!=0">
+ 	 			and ny in (select id FROM wages where  nian = #{ny.nian}) 	
+ 	 			</if> 	
+ 	 			<if test="ny.yue!=0">
+ 	 			and  ny in (select id FROM wages where  yue = #{ny.yue}) 	
+ 	 			</if>	 
+ 	 		</if>
+ 	 		<if test="ri!=0">
+ 	 			and ri =#{ri}	
+ 	 		</if>	
+  	  </select>
+  	  <select id="selectWagesById" resultType="com.whl.model.Wages">
+ 	 	select * from wages where id = #{id}
+  	  </select>
+  	  <select id="selectBrokById" resultType="com.whl.model.Brok">
+ 	 	select * from brok where b_id = #{b_id}
+  	  </select>
+  	  <resultMap type="com.whl.model.Ri" id="RiWages">
+  	  	<id column="id" javaType="int" property="id"/>
+  	  	<collection property="ny" column="ny" javaType="com.whl.model.Wages" select="selectWagesById"/>
+  	  	<collection property="jsr" column="jsr" javaType="com.whl.model.Brok" select="selectBrokById"/>
+  	  </resultMap>
+  	  <insert id="AddShf" statementType="CALLABLE" parameterType="Map" >
+  	  	<![CDATA[
+			  {
+			   call AddShf(
+			      #{nian,mode=IN,jdbcType=INTEGER},
+			      #{yue,mode=IN,jdbcType=INTEGER},
+			      #{ri,mode=IN,jdbcType=INTEGER},
+			      #{rjbgz,mode=IN,jdbcType=DOUBLE},
+			      #{shf,mode=IN,jdbcType=DOUBLE},
+			      #{bid,mode=IN,jdbcType=INTEGER},
+			      #{chu,mode=IN,jdbcType=INTEGER},
+			      #{flg,mode=OUT,jdbcType=INTEGER} 
+			   )	  
+			  }		
+			]]>	
+  	  </insert>
+</mapper>

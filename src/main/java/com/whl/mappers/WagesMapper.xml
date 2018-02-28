@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.whl.mappers.WagesMapper" >
+		<!-- 查询月收入 -->
+  	  <select id="selectWages" parameterType="com.whl.model.Wages" resultType="com.whl.model.Wages" >
+ 	 	select * from wages
+ 	 	<where>
+ 	 		<if test="nian!=0">
+ 	 		nian = #{nian}
+ 	 		</if>
+ 	 		<if test="yue!=0">
+ 	 		and yue = #{yue}
+ 	 		</if>
+ 	 	</where>
+ 	 	LIMIT #{page},#{rows}
+  	  </select>
+  	  
+  	    <select id="WagesZnum" resultType="int" parameterType="com.whl.model.Wages">
+ 	 	select count(*) from wages
+ 	 	<where>
+ 	 		<if test="nian!=0">
+ 	 		nian = #{nian}
+ 	 		</if>
+ 	 		<if test="yue!=0">
+ 	 		 and yue = #{yue}
+ 	 		</if>
+ 	 	</where>
+  	  </select>
+  	  <!-- 查询所有年份 -->
+  	  <select id="WagesAllNian" resultType="int" >
+ 	 	select nian from wages GROUP BY nian
+  	  </select>
+  	   <!-- 按年查询所有月份 -->
+  	  <select id="WagesAllYueOfNian" resultType="int" parameterType="int">
+ 	 	select yue from wages WHERE nian = #{nian} GROUP BY yue
+  	  </select>
+  	  
+  	  <!-- 按年月查询指定 -->
+  	  <select id="WagesOfNy" resultType="com.whl.model.Wages" parameterType="com.whl.model.Wages">
+ 	 	select * from wages WHERE nian = #{nian} and yue = #{yue}
+  	  </select>
+  	  
+  	  <update id="updateWages" parameterType="com.whl.model.Wages">
+  	  	UPDATE wages SET yjbgz =#{yjbgz} 
+  	  	<if test="yue>0">
+ 	 		, chu = #{chu}
+ 	 	</if>
+  	  	
+  	  	WHERE nian=#{nian}
+  	  	<if test="yue>0">
+ 	 		and yue = #{yue}
+ 	 	</if>
+  	  </update>
+  	
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.whl.mappers.BrokMapper" >
+		<!-- 查询所有经手人 -->
+  	  <select id="selectBrok" resultType="com.whl.model.Brok">
+ 	 	select * from brok
+  	  </select>
+  	  <insert id="AddBrok" parameterType="string">
+  	   INSERT INTO brok (b_name) VALUES ( #{b_name})
+  	  </insert>
+</mapper>

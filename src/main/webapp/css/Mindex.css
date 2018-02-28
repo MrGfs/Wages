@@ -1,0 +1,274 @@
+*{
+    padding: 0;
+    margin:0px; 
+}
+body{
+     background-image: url("../img/back1.jpg");
+   
+
+}
+header{
+    height: 40px;
+    width: 100%;
+    border-radius: 0 0 15px  15px; 
+    border: 1px dashed;
+    background: #50b6f3;
+    /*opacity: 0.6;*/
+    position: fixed;    
+    z-index: 1000;
+    top:0px;
+    
+    
+    
+    
+}
+#gzsc{
+	font-size: 12px;
+}
+header ul{
+    
+    height: 40px;
+    width: 95%;
+    position: relative;
+    /*水平居中*/
+    justify-content:center;
+    display:-webkit-flex;
+}
+
+header ul li{
+    height:40px;
+    width:31%;
+    float:left;
+    list-style: none;
+    border-left: 1px dashed;    
+    line-height: 40px;  
+     cursor: pointer;
+     overflow:hidden;
+    
+}
+header ul li:first-child{
+    width:10%;
+    
+}
+header ul li:last-child{
+    width:11%;
+    
+}
+header ul li a{
+    height:40px;
+    text-decoration: none;  
+    color: #fff;
+    text-align-last: center;
+    display: block;
+    
+}
+#contentDiv{
+	width: 100%;
+	overflow: h
+}
+#Rcontent{
+    position: fixed;
+    left: -100%;
+    height:100%;
+    padding-top:50px;
+    background: #50b6f3;
+    z-index: 99;
+}
+#Ccontent{
+    position: relative  ;
+    top: 50px;
+    
+}
+#Lcontent{
+    height:auto;
+    width:auto;
+    position: fixed;
+    top: 50px;
+    right:0;
+    left:100%;
+    z-index: 100;
+   
+}
+
+#szT{
+    width: 282px;
+    height:61px;
+    color:#fff;
+    background: green;
+    border-radius:20px; 
+    border: 1px solid #fff;
+    line-height: 61px;
+    margin-top: 100%;
+}
+#szT div{
+    height: 30px;
+    line-height: 30px;
+    overflow:hidden;
+}
+#cdiv{
+    height: 300px;
+}
+#ewm{
+    width: 144px;
+    height: 112px;
+    position: fixed;
+    top:50%;
+    margin-left:-107px;
+    margin-top:-50px;
+}
+#ewm div{
+    float: left;
+}
+#codeD{
+    width: 106px;
+    height: 106px;
+    background: #fff;
+    padding-top:6px;
+    padding-left:5px;
+    border-radius:5px;
+    border: 1px solid;
+}
+#cz{
+    border-radius:0 10px 10px 0; 
+    width: 22px;
+    height:50px;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    background:#fff;
+    left:-1px;
+    margin-top: -33px;
+    padding-top:12px;
+    cursor: pointer;
+    border: 1px solid;
+    border-left: none;
+}
+#rwmText{
+    border-radius:20px; 
+    width: 400px;
+    height: 400px;
+    background: #fff;
+    position: absolute;
+    display:none;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+    z-index: 998
+}
+#rwmText2{
+    border-radius:20px; 
+    width: 400px;
+    height: 400px;
+    background: #fff;
+    position: absolute;
+    display:none;
+    padding-top:10px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+    z-index: 999
+}
+#WiFi{
+    display: none;
+    font-size: 12px;
+}
+#mp{
+    display: none;
+    font-size: 12px;
+}
+
+#timeDiv{
+    position: fixed;
+    width: 150px;
+    height: 42px;
+    padding: 5px;   
+    border: 1px dashed #000;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    background: #50b6f3;
+    opacity: 0.6;
+    
+}
+#nowTime{
+    font-size: 20px;
+    
+}
+
+#yearOutDiv{
+    height: 300px;
+    width:100px;
+    position: relative;
+    
+    
+}
+#yearOut{
+    width: 1px;
+}
+#yearOut div{
+    float: left;
+    color: #000;
+    overflow:hidden;
+    height: 20px;   
+    font-size:10px;
+    line-height:20px;
+    text-align: left;
+    cursor: pointer;
+    border:1px solid #fff;
+    border-top:none;
+    border-radius:0 6px 6px 0;
+   
+}
+
+
+#yearInDiv{
+    height: 300px;
+    width:100px;
+    position: relative;
+
+    
+    
+}
+#yearIn{
+    width: 1px;
+}
+#yearIn div{
+    float: left;
+    color: #000;
+    overflow:hidden;
+    height: 20px;   
+    font-size:10px;
+    line-height:20px;
+    text-align: left;
+    cursor: pointer;
+    border:1px solid #fff;
+    border-top:none;
+    border-radius:0 6px 6px 0;
+}
+
+#op{
+    border-radius:20px; 
+    width: 400px;
+    height: 400px;
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+    z-index: 998;
+    display: none;
+    opacity: 0.9;
+}
+.op{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+
+
+
+

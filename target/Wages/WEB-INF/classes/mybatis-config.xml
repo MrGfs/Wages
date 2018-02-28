@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- 允许JDBC支持生成的键 -->
+        <setting name="useGeneratedKeys" value="true"/>
+        <!--
+       		 mybatis日志打印
+        	报出：The setting logImpl is not known. Make sure you spelled it correctly...
+        	解决方法:使用mybatis-3.2.3.jar
+         -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <mappers>
+        <!-- 配置映射文件 -->
+    </mappers>
+</configuration>

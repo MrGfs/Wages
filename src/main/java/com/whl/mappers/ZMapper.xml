@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.whl.mappers.ZMapper" >
+	  <select id="yearOut" statementType="CALLABLE" parameterType="int" resultType="com.whl.model.Z">
+	  	<![CDATA[
+			  {
+			   call yearOut(
+			      #{nian,mode=IN,jdbcType=INTEGER}   
+			   )	  
+			  }		
+			]]>	
+	  </select>
+	  <select id="yearIn" statementType="CALLABLE" parameterType="int" resultType="com.whl.model.Z">
+	  	<![CDATA[
+			  {
+			   call yearIn(
+			      #{nian,mode=IN,jdbcType=INTEGER}   
+			   )	  
+			  }		
+			]]>	
+	  </select>
+	   <select id="yearZIn" statementType="CALLABLE" parameterType="Map">
+	  	<![CDATA[
+			  {
+			   call yearZIn(
+			      #{nian,mode=IN,jdbcType=INTEGER},
+			      #{id,mode=OUT,jdbcType=DOUBLE}  
+			   )	  
+			  }		
+			]]>	
+	  </select>
+	   <select id="yearZOut" statementType="CALLABLE" parameterType="Map">
+	  	<![CDATA[
+			  {
+			   call yearZOut(
+			      #{id,mode=IN,jdbcType=INTEGER},
+			      #{id,mode=OUT,jdbcType=DOUBLE}   
+			   )	  
+			  }		
+			]]>	
+	  </select>
+</mapper>
